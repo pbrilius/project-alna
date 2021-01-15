@@ -1,0 +1,6 @@
+[submodule "frontend-alna"]
+	path = frontend-alna
+	url = git@github.com:pbrilius/frontend-alna.git
+[submodule "backend-alna"]
+	path = backend-alna
+	url = git@github.com:pbrilius/backend-alna.git

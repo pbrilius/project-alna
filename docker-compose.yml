@@ -1,0 +1,17 @@
+version: "3.3"
+
+services:
+  backend-alna:
+    image: veritus4/lamp-docker:Laravel
+    ports:
+      - "2124:2124"
+    restart: always
+    volumes:
+      - ./backend-alna:/srv/www/vhosts/laravel.app
+  frontend-alna:
+    image: veritus4/lamp-docker:Laravel
+    ports:
+      - "2125:2124"
+    restart: always
+    volumes:
+      - ./frontend-alna:/srv/www/vhosts/laravel.app

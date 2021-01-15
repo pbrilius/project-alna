@@ -8,6 +8,13 @@ services:
     restart: always
     volumes:
       - ./backend-alna:/srv/www/vhosts/laravel.app
+    depends_on:
+      - redis
+  redis:
+    image: redis:latest
+    volumes:
+      - db_redis:/data
+    restart: always
   frontend-alna:
     image: veritus4/lamp-docker:Laravel
     ports:
@@ -15,3 +22,5 @@ services:
     restart: always
     volumes:
       - ./frontend-alna:/srv/www/vhosts/laravel.app
+volumes:
+  db_redis: {}

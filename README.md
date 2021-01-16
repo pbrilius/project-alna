@@ -18,4 +18,5 @@ npm install;
 cd ../frontend-alna;
 composer install;
 npm install;
+npx tailwindcss init;
 ```

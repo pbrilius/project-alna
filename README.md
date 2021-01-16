@@ -20,3 +20,9 @@ composer install;
 npm install;
 npx tailwindcss init;
 ```
+
+Run units:
+```
+cd frontend-alna
+./vendor/bin/phpunit
+```

@@ -15,6 +15,9 @@ services:
     volumes:
       - db_redis:/data
     restart: always
+    networks:
+      redis_db:
+        ipv4_address: 172.16.238.10
   frontend-alna:
     image: veritus4/lamp-docker:Laravel
     ports:
@@ -24,3 +27,10 @@ services:
       - ./frontend-alna:/srv/www/vhosts/laravel.app
 volumes:
   db_redis: {}
+
+networks:
+  redis_db:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.16.238.0/24"

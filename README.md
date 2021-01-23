@@ -21,9 +21,10 @@ cd backend-alna;
 composer install;
 cp .env.example -v .env
 php artisan key:generate;
-npm install
 cd ../frontend-alna;
 composer install
+npm install
+php artisan key:generate
 npm install --save vue jquery;
 ```
 Run `npm run prod` and with the installation, run it again (if it asks so) till it's finished.
@@ -37,7 +38,7 @@ docker-compose up -d
 
 ## Database initialize
 
-Get to **Redis** configuration: `REDIS_HOST=172.16.238.10` `full-stack/.env`. 
+Get to **Redis** configuration: `REDIS_HOST=172.16.238.10` `backend-alna/.env`. 
 
 Add MySQL credentials to `backend-alna/.env`: 
 ```
@@ -47,7 +48,7 @@ DB_PASSWORD=TxuJAz
 
 Initialize database and migrate:
 ```
-docker container exec -it docker-solution-alna_full-stack_1 /bin/bash
+docker container exec -it project-alna_backend-alna_1 /bin/bash
 cd laravel.app
 cat dist/db-init.sql | mysql -nEv
 php artisan migrate
@@ -56,7 +57,7 @@ exit
 
 Run units on *SOLID DDD*:
 ```
-docker container exec -it docker-solution-alna_full-stack_1 /bin/bash
+docker container exec -it project-alna_backend-alna_1 /bin/bash
 cd laravel.app
 ./vendor/bin/phpunit
 exit

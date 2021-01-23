@@ -67,7 +67,7 @@ Don't get afraid *if it fails on some units*, or *warnings are issued* because i
 
 Start queue processing:
 ```
-docker container exec -it docker-solution-alna_full-stack_1 /bin/bash
+docker container exec -it project-alna_backend-alna_1 /bin/bash
 cd laravel.app
 php artisan queue:work
 ```
@@ -87,7 +87,7 @@ You can try with the next one - *https://pbrilius.medium.com/laravel-docker-conv
 Want to start with a fresh database?
 
 ```shell
-docker container exec -it docker-solution-alna_full-stack_1 /bin/bash
+docker container exec -it project-alna_backend-alna_1 /bin/bash
 cd laravel.app
 php artisan migrate:fresh
 ```
@@ -96,4 +96,4 @@ then click **Load Crawl Data**.
 
 # FAQ
 
-* Cannot append to log file - `sudo chmod -Rv 2777 full-stack/storage/logs`
+* Cannot append to log file - `sudo chmod -Rv 2777 {backend,frontend}-alna/storage/logs`

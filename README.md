@@ -23,6 +23,7 @@ cp .env.example -v .env
 php artisan key:generate;
 cd ../frontend-alna;
 composer install
+# php artisan ui bootstrap
 npm install
 php artisan key:generate
 npm install --save vue jquery;

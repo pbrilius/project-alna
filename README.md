@@ -29,8 +29,8 @@ cp .env.example -v .env
 php artisan key:generate;
 cd ../frontend-alna;
 composer install
-php artisan key:generate
 cp .env.example -v .env
+php artisan key:generate
 npm install
 ```
 Run `npm run prod` and with the installation, run it again (if it asks so) till it's finished.
@@ -79,6 +79,14 @@ cd laravel.app
 php artisan queue:work
 ```
 
+## Reassign log permissions
+
+Open a new shell tab or window and enter the project root.
+
+```
+sudo chmod -Rv 2777 {backend,frontend}-alna/storage/logs
+```
+
 ## Working with forms
 
 Get to [http://localhost:2125/dashboard](Dashboard) on the browser.
@@ -97,6 +105,7 @@ Want to start with a fresh database?
 docker container exec -it project-alna_backend-alna_1 /bin/bash
 cd laravel.app
 php artisan migrate:fresh
+exit
 ```
 
 then click **Load Crawl Data**.

@@ -1,5 +1,9 @@
 # project-alna
 
+## Initial launch up
+
+Update submodules `git submodule update`.
+
 Add the correct *permissions*:
 
 ```
@@ -7,15 +11,13 @@ chmod -Rv o+rw backend-alna/storage
 chmod -Rv o+rw frontend-alna/storage
 ```
 
-Just in case (*FAQ*) - 
+## Just in case (*FAQ*) - 
 ```
 sudo chmod -Rv 2777 backend-alna/storage/logs
 sudo chmod -Rv 2777 frontend-alna/storage/logs
 ```
 
-Run launching up docker compose `docker-compose up -d`.
-
-Install the assets
+## Install the assets
 ```
 cd backend-alna;
 composer install;
@@ -23,10 +25,9 @@ cp .env.example -v .env
 php artisan key:generate;
 cd ../frontend-alna;
 composer install
-# php artisan ui bootstrap
+cp .env.example -v .env
 npm install
 php artisan key:generate
-npm install --save vue jquery;
 ```
 Run `npm run prod` and with the installation, run it again (if it asks so) till it's finished.
 
@@ -61,10 +62,11 @@ Run units on *SOLID DDD*:
 docker container exec -it project-alna_backend-alna_1 /bin/bash
 cd laravel.app
 ./vendor/bin/phpunit
+php artisan migrate:fresh
 exit
 ```
 
-Don't get afraid *if it fails on some units*, or *warnings are issued* because its *DDD* and *documentation* discrepancies.
+Don't get afraid *if it fails on some units*, or *warnings are issued* - *deprecation* & *HTTP* request timeout.
 
 Start queue processing:
 ```
@@ -75,7 +77,7 @@ php artisan queue:work
 
 ## Working with forms
 
-Get to [http://localhost:2124/dashboard](Dashboard) on the browser.
+Get to [http://localhost:2125/dashboard](Dashboard) on the browser.
 
 
 Then navigate to the form and upload some data, e. g. *https://medium.com/swlh/fun-with-python-3-hacking-instagram-giveaways-35e5b1d51670*
@@ -97,4 +99,4 @@ then click **Load Crawl Data**.
 
 # FAQ
 
-* Cannot append to log file - `sudo chmod -Rv 2777 {backend,frontend}-alna/storage/logs`
+* Cannot append to log file or *general network error* in frontend Dashbord - `sudo chmod -Rv 2777 {backend,frontend}-alna/storage/logs`

@@ -10,6 +10,8 @@ services:
       - ./backend-alna:/srv/www/vhosts/laravel.app
     depends_on:
       - redis
+    networks:
+      - redis_db
   redis:
     image: redis:latest
     volumes:

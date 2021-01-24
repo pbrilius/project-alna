@@ -2,7 +2,11 @@
 
 ## Initial launch up
 
-Update submodules `git submodule update`.
+Update submodules
+```
+git submodule init
+git submodule update
+```
 
 Add the correct *permissions*:
 
@@ -11,7 +15,7 @@ chmod -Rv o+rw backend-alna/storage
 chmod -Rv o+rw frontend-alna/storage
 ```
 
-## Just in case (*FAQ*) - 
+Just in case (*FAQ*) - 
 ```
 sudo chmod -Rv 2777 backend-alna/storage/logs
 sudo chmod -Rv 2777 frontend-alna/storage/logs
@@ -25,9 +29,9 @@ cp .env.example -v .env
 php artisan key:generate;
 cd ../frontend-alna;
 composer install
+php artisan key:generate
 cp .env.example -v .env
 npm install
-php artisan key:generate
 ```
 Run `npm run prod` and with the installation, run it again (if it asks so) till it's finished.
 
@@ -99,4 +103,5 @@ then click **Load Crawl Data**.
 
 # FAQ
 
-* Cannot append to log file or *general network error* in frontend Dashbord - `sudo chmod -Rv 2777 {backend,frontend}-alna/storage/logs`
+* Cannot append to log file or *general network error* in frontend Dashbord - `sudo chmod -Rv 2777 {backend,frontend}-alna/storage/logs`.
+* Encryption key not generated: `php artisan key:generate`.
